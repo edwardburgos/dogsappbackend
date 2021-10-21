@@ -42,9 +42,4 @@ module.exports = (sequelize) => {
       unique: true
     }
   });
-
-
 };
-
-
-// {nombre, heightmax, heightmin, weightmax, weightmin, temperaments} = req.body;

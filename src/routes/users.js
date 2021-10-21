@@ -129,7 +129,6 @@ router.get('/:username', async (req, res, next) => {
             return res.status(500).send('User not found')
         }
     } catch (e) {
-        console.log(e)
         next();
     }
 })
@@ -163,7 +162,6 @@ router.post('/register', async (req, res, next) => {
             } else { return res.status(409).send({ success: false, msg: 'There is already a user with this email' }) }
         } else { res.status(409).send({ success: false, msg: 'There is already a user with this username' }) }
     } catch (e) {
-        console.log(e)
         next()
     }
 })
@@ -359,7 +357,6 @@ router.post('/definePasswordWithEmail', async (req, res, next) => {
             return res.status(404).send({ success: false, msg: "There is no user registered with this email" });
         }
     } catch (e) {
-        console.log(e);
         next();
     }
 })
@@ -382,7 +379,6 @@ router.post('/changeCurrentPassword', passport.authenticate('jwt', { session: fa
             return res.status(401).send('Incorrect password')
         }
     } catch (e) {
-        console.log(e)
         next();
     }
 })
@@ -405,7 +401,6 @@ router.post('/changePasswordWithEmail', async (req, res, next) => {
             return res.status(404).send(`There is no user with the email ${email}`)
         }
     } catch (e) {
-        console.log(e)
         next();
     }
 })

@@ -78,8 +78,4 @@ conn.sync({ force: false }).then(async () => { // force: false > La información
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
-  //   (async () => {
-  //   await sequelize.conn.sync();
-  //   sequelize.query("SELECT setval('dogs_id_seq', 264);")
-  // })()
 });

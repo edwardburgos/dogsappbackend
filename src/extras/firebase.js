@@ -31,33 +31,3 @@ async function deleteImage(origin, fileName) {
 
 module.exports.deleteImage = deleteImage;
 module.exports.admin = admin;
-
-// export async function uploadConfirmedImage(username, imageAsFile) {
-//     try {
-//         await app.storage().ref(`/profilePictures/${username}ProfilePic`).put(imageAsFile)
-//         const url = await app.storage().ref('profilePictures').child(`${username}ProfilePic`).getDownloadURL()
-//         return url
-//     } catch (e) {
-//         return 'Sorry, we could not save your new profile picture'
-//     }
-// }
-
-// export async function uploadPetImage(pet, imageAsFile) {
-//     try {
-//         await app.storage().ref(`/testsPetsPictures/${pet}`).put(imageAsFile)
-//         const url = await app.storage().ref('testsPetsPictures').child(`${pet}`).getDownloadURL()
-//         return url
-//     } catch (e) {
-//         return 'Sorry, we could not upload your pet picture'
-//     }
-// }
-
-// export async function uploadConfirmedPetImage(pet, imageAsFile) {
-//     try {
-//         await app.storage().ref(`/petsPictures/${pet}`).put(imageAsFile)
-//         const url = await app.storage().ref('petsPictures').child(`${pet}`).getDownloadURL()
-//         return url
-//     } catch (e) {
-//         return 'Sorry, we could not save your pet picture'
-//     }
-// }

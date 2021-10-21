@@ -83,7 +83,6 @@ async function sendMail(name, addressee, reason, token) {
             `<p style='margin-bottom: 0;'>Hope you share your dogs with the community</p></div>` : ''
         }
         const result = await transport.sendMail(mailOptions);
-        console.log(result)
         return result;
     } catch (e) {
         console.log(e)
