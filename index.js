@@ -75,7 +75,7 @@ conn.sync({ force: false }).then(async () => { // force: false > La información
       console.log(e)
     }
   }
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  server.listen(process.env.PORT, () => {
+    console.log(`%s listening at ${process.env.PORT}`); // eslint-disable-line no-console
   });
 });

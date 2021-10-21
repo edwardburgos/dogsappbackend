@@ -6,7 +6,7 @@ oAuth2Client.setCredentials({ refresh_token: process.env.GMAIL_API_REFRESH_TOKEN
 
 async function sendMail(name, addressee, reason, token) {
     try {
-        let url = 'http://localhost:3000'
+        let url = process.env.CLIENT
 
         if (['loginWithoutPassword', 'verifyEmail', 'resetPassword', 'deleteAccountEmail', 'definePassword'].includes(reason) && token) {
             url = `${url}/auto/${reason}/${token.token}?expires=${token.expires}`
