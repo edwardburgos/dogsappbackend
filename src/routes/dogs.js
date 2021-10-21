@@ -151,7 +151,6 @@ router.get('/:id', async (req, res, next) => {
             res.status(404).send(`There is no dog breed with the id ${req.params.id}`);
         }
     } catch (e) {
-        console.log(e)
         next();
     }
 })

@@ -85,7 +85,6 @@ async function sendMail(name, addressee, reason, token) {
         const result = await transport.sendMail(mailOptions);
         return result;
     } catch (e) {
-        console.log(e)
         return 'Sorry, an error ocurred'
     }
 }

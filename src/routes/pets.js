@@ -105,7 +105,6 @@ router.get('/communityAll', async (req, res, next) => {
         })
         res.send(community.map(e => { return { ...e.dataValues, likesCount: e.dataValues.likes.length, likes: e.dataValues.likes.map(e => e.user) } }))
     } catch (e) {
-        console.log(e)
         next()
     }
 })
@@ -159,8 +158,6 @@ router.put('/', passport.authenticate('jwt', { session: false }), async (req, re
                 const oldPhoto = pet.photo;
                 const petUpdated = await pet.update({ name, photo, dogId });
                 if (petUpdated) {
-                    console.log(oldPhoto)
-                    console.log(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(oldPhoto.slice(87, 123)))
                     deleteImage('pets', /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(oldPhoto.slice(87, 123)) ? oldPhoto.slice(87, 123) : null);
                     deleteImage('testsPets', pet.id)
                     return res.send(`${petUpdated.name} was updated successfully`)
