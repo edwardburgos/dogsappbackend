@@ -7,7 +7,6 @@ const passport = require('passport');
 const { Op } = require('sequelize');
 const router = Router();
 
-
 // This route allows us to read the existing likes of the given pet
 router.get('/:pet', async (req, res, next) => {
     try {

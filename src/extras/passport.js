@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const { User, Dog, Pet, Like } = require('../db.js');
 
-
 const pathToKey = path.join(__dirname, '.', 'id_rsa_pub.pem');
 const PUB_KEY = fs.readFileSync(pathToKey, 'utf8');
 

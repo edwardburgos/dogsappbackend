@@ -28,11 +28,12 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 const { Dog, Temperament, DogTemperament, Pet, User, Like} = sequelize.models;
+
+// Acá podemos definir hooks
 // Dog.addHook('afterBulkCreate', 'connectTemperaments', user => {
-  
-//   // ...
 // });
 
+// Acá definimos relaciones
 Dog.belongsToMany(Temperament, {through: "dogtemperament"});
 Temperament.belongsToMany(Dog, {through: "dogtemperament"});
 User.hasMany(Pet, {foreignKey: { allowNull: false }, onDelete: 'cascade', hooks: true}); 
@@ -42,9 +43,6 @@ Pet.hasMany(Like, {foreignKey: { allowNull: false }});
 Pet.belongsTo(User); 
 Like.belongsTo(User); 
 Pet.belongsTo(Dog); 
-
-// Aca vendrian las relaciones
-// Product.hasMany(Reviews);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

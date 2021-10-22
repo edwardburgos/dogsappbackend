@@ -9,7 +9,6 @@ const temperaments = require('./routes/temperaments.js');
 const users = require('./routes/users.js');
 const passport = require('passport');
 
-
 // Configures the database and opens a global connection that can be used in any module with `mongoose.connection`
 require('./db.js');
 
@@ -24,14 +23,12 @@ require('./extras/passport.js')(passport);
 
 server.name = 'API';
 
-
 // This will initialize the passport object on every request
 server.use(passport.initialize());
 
 // Instead of using body-parser middleware, use the new Express implementation of the same thing
 server.use(express.json());
 server.use(express.urlencoded({extended: true}));
-
 
 server.use(cookieParser());
 server.use(morgan('dev'));
