@@ -24,6 +24,7 @@ async function deleteImage(origin, fileName) {
         if (origin === 'pets' && fileName) await admin.storage().bucket().file(`petsPictures/${fileName}`).delete();
         if (origin === 'testsPets') await admin.storage().bucket().file(`testsPetsPictures/${fileName}`).delete();
         if (origin === 'deletePet') await admin.storage().bucket().file(`petsPictures/${fileName}`).delete();
+        return 'The deletion was successful'
     } catch (e) {
         return 'Sorry, we could not delete the image';
     }

@@ -204,8 +204,8 @@ router.delete('/:pet', passport.authenticate('jwt', { session: false }), async (
     }
 })
 
-router.delete('/notUsed/:photoImageName', async (req, res) => {
-    if (parseInt(req.params.photoImageName)) {
+router.delete('/notUsed/:photoImageName', async (req) => {
+    if (!isNaN(req.params.photoImageName)) {
         deleteImage('testsPets', req.params.photoImageName)
     } else {
         const pet = await Pet.findOne({
